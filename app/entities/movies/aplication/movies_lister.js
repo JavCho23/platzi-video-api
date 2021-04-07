@@ -1,3 +1,4 @@
+// Aqui deberia usarse una interfaz para el repositorio
 class MoviesLister {
     constructor(repository) {
         this.repository = repository;

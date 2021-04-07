@@ -158,6 +158,9 @@ class MockMoviesRepository {
     async getAllMovies() {
         return movies;
     }
+    async create(movie) {
+        return movies[0];
+    }
     async find(movieId) {
         return movies[0];
     }
