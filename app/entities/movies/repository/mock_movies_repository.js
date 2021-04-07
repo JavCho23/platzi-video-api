@@ -167,4 +167,4 @@ class MockMoviesRepository {
     async remove(movieId) {}
 }
 
-module.exports = new MockMoviesRepository();
+module.exports = MockMoviesRepository;

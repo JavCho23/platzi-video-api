@@ -1,8 +1,9 @@
-const MoviesRepository = require("../repository/mock_movies_repository");
-
 class MoviesLister {
+    constructor(repository) {
+        this.repository = repository;
+    }
     async run() {
-        return MoviesRepository.getAllMovies();
+        return this.repository.getAllMovies();
     }
 }
-module.exports = new MoviesLister();
+module.exports = MoviesLister;
