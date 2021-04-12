@@ -1,6 +1,7 @@
 const express = require("express");
 const { config } = require("./app/config/index");
 const InitRoutes = require("./app/router");
+const SetMiddlewares = require("./app/middlewares");
 const app = express();
 
 app.get("/", function (req, res) {
@@ -8,10 +9,7 @@ app.get("/", function (req, res) {
 });
 
 InitRoutes(app);
-
-app.get("/json", function (req, res) {
-    res.json({ hello: "world" });
-});
+SetMiddlewares(app);
 
 app.listen(config.port, () => {
     console.log(`Listening http://localhost:${config.port}`);
