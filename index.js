@@ -2,7 +2,10 @@ const express = require("express");
 const { config } = require("./app/config/index");
 const InitRoutes = require("./app/router");
 const SetMiddlewares = require("./app/middlewares");
+const { json } = require("body-parser");
 const app = express();
+
+app.use(json());
 
 app.get("/", function (req, res) {
     res.send("Hello world");
