@@ -45,11 +45,11 @@ class MoviesController {
 
         try {
             const moviesCreator = new MoviesCreator(this.repository);
-            const movie = await moviesCreator.run(movie);
+            const movieCreated = await moviesCreator.run(movie);
 
             res.status(201).json({
-                data: movie,
-                message: "movie finded",
+                data: movieCreated,
+                message: "movie created",
             });
         } catch (err) {
             next(err);
