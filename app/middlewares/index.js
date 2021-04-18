@@ -1,5 +1,7 @@
-const ErroHandler = require("./error");
+const { handleError, parseError, notFound } = require("./error");
 
 module.exports = function (app) {
-    app.use(ErroHandler);
+    app.use(notFound);
+    app.use(parseError);
+    app.use(handleError);
 };

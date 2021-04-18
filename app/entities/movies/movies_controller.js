@@ -13,6 +13,7 @@ class MoviesController {
         const { tags } = req.query;
 
         try {
+            throw new Error("que fue");
             const moviesLister = new MoviesLister(this.repository);
             const movies = await moviesLister.run(tags);
 
