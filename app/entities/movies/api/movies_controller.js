@@ -1,8 +1,8 @@
-const MoviesCreator = require("./aplication/movies_creator");
-const MoviesFinder = require("./aplication/movies_finder");
-const MoviesLister = require("./aplication/movies_lister");
-const MoviesUpdater = require("./aplication/movies_updater");
-const MoviesRepository = require("./repository/mock_movies_repository");
+const MoviesCreator = require("../aplication/movies_creator");
+const MoviesFinder = require("../aplication/movies_finder");
+const MoviesLister = require("../aplication/movies_lister");
+const MoviesUpdater = require("../aplication/movies_updater");
+const MoviesRepository = require("../repository/mock_movies_repository");
 
 class MoviesController {
     constructor() {
@@ -13,7 +13,6 @@ class MoviesController {
         const { tags } = req.query;
 
         try {
-            throw new Error("que fue");
             const moviesLister = new MoviesLister(this.repository);
             const movies = await moviesLister.run(tags);
 

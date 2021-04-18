@@ -19,8 +19,9 @@ function parseError(err, _, _, next) {
 function handleError(err, _, res, _) {
     const {
         output: { statusCode, payload },
+        data,
     } = err;
-    console.log(err);
+    payload.details = data
     res.status(statusCode).json(payload);
 }
 
