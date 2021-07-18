@@ -7,7 +7,7 @@ function notFound(_, res) {
     res.status(statusCode).json(payload);
 }
 
-function parseError(err, _, _, next) {
+function parseError(err, req, res, next) {
     if (!err.isBoom) {
         const error = boom.badImplementation(err);
         error.data = err.stack;
@@ -16,12 +16,12 @@ function parseError(err, _, _, next) {
     next(err);
 }
 
-function handleError(err, _, res, _) {
+function handleError(err, req, res) {
     const {
         output: { statusCode, payload },
         data,
     } = err;
-    payload.details = data
+    payload.details = data;
     res.status(statusCode).json(payload);
 }
 
