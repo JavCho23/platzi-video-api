@@ -8,12 +8,10 @@ function notFound(_, res) {
 }
 
 function parseError(err, req, res, next) {
-    if (!err.isBoom) {
-        const error = boom.badImplementation(err);
-        error.data = err.stack;
-        next(error);
-    }
-    next(err);
+    if (err.isBoom) next(err);
+    const error = boom.badImplementation(err);
+    error.data = err.stack;
+    next(error);
 }
 
 function handleError(err, req, res) {
